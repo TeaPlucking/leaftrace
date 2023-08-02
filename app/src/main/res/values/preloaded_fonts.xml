@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/archivo_black</item>
+        <item>@font/inknut_antiqua</item>
+        <item>@font/inknut_antiqua_bold</item>
+        <item>@font/inknut_antiqua_light</item>
+        <item>@font/irish_grover</item>
+        <item>@font/oleo_script</item>
+        <item>@font/philosopher</item>
+        <item>@font/racing_sans_one</item>
+    </array>
+</resources>
