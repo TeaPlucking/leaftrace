@@ -36,7 +36,8 @@ public class SignupScreen_Activity extends AppCompatActivity {
     }
 
     private void openDashboard() {
-
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
     }
 
     private void openLoginScreen() {
