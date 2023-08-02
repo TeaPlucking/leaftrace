@@ -35,11 +35,13 @@ public class SignupScreen_Activity extends AppCompatActivity {
         });
     }
 
+    private void openDashboard() {
+
+    }
+
     private void openLoginScreen() {
         Intent intent = new Intent(this, loginScreenActivity.class);
         startActivity(intent);
     }
 
-    private void openDashboard() {
-    }
 }
