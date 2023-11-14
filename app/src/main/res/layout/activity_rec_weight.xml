@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".recWeightActivity">
+
+    <ImageView
+        android:id="@+id/imgageView11"
+        android:layout_width="374dp"
+        android:layout_height="649dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="400dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/green" />
+
+    <TextView
+        android:id="@+id/hello_txt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imgageView11"
+        android:layout_alignTop="@+id/imgageView11"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="39dp"
+        android:text="Record Weight"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/plkerid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hello_txt3"
+        android:layout_alignStart="@+id/imgageView11"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="31dp"
+        android:fontFamily="sans-serif"
+        android:text="Pluckers Id"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/nameInput2"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/plkerid"
+        android:layout_alignStart="@+id/imgageView11"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_btn"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameInput2"
+        android:layout_alignStart="@+id/imgageView11"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="34dp"
+        android:fontFamily="sans-serif"
+        android:text="Amount (KG)"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/nameInput3"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/amount"
+        android:layout_alignStart="@+id/imgageView11"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/round_btn"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/nameInput4"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/area1"
+        android:layout_alignStart="@+id/imgageView11"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/round_btn"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/area1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameInput3"
+        android:layout_alignStart="@+id/imgageView11"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif"
+        android:text="Area"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/nameInput5"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date"
+        android:layout_alignStart="@+id/imgageView11"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/round_btn"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameInput4"
+        android:layout_alignStart="@+id/imgageView11"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="39dp"
+        android:fontFamily="sans-serif"
+        android:text="Date"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/recbtn"
+        android:layout_width="243dp"
+        android:layout_height="58dp"
+        android:layout_below="@+id/nameInput5"
+        android:layout_alignStart="@+id/imgageView11"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="37dp"
+        android:backgroundTint="#888888"
+        android:text="Record"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
