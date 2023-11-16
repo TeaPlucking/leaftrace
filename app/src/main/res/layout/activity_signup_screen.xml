@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="374dp"
-        android:layout_height="649dp"
+        android:layout_width="372dp"
+        android:layout_height="690dp"
         android:layout_marginTop="35dp"
         android:layout_marginBottom="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,8 +18,35 @@
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.494"
+        app:layout_constraintVertical_bias="0.466"
         app:srcCompat="@drawable/white" />
+
+    <TextView
+        android:id="@+id/username_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:fontFamily="sans-serif"
+        android:text="Username"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/mngrIdInput" />
+
+    <EditText
+        android:id="@+id/mngrIdInput2"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/round_btn"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/username_txt" />
 
     <TextView
         android:id="@+id/loginHereBtn"
@@ -38,15 +65,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/signupbtn"
-        app:layout_constraintVertical_bias="0.523" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/signupbtn"
-        android:layout_width="161dp"
+        android:layout_width="165dp"
         android:layout_height="71dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#888888"
         android:fontFamily="@font/inknut_antiqua_bold"
         android:text="Signup"
@@ -55,6 +82,7 @@
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/rePwdInput" />
 
@@ -136,7 +164,8 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="sans-serif"
         android:text="Password"
         android:textColor="#000000"
@@ -206,14 +235,14 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/oleo_script"
         android:text="Getting Started"
         android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
@@ -221,7 +250,7 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/oleo_script"
         android:text="Let’s Signup for leaf  trace to continue"
@@ -244,5 +273,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/signupbtn" />
+        app:layout_constraintTop_toBottomOf="@+id/signupbtn"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
