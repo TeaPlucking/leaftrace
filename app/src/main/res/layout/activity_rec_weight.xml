@@ -14,9 +14,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="19dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +45,7 @@
         android:layout_alignTop="@+id/imgageView11"
         android:layout_marginStart="14dp"
         android:layout_marginTop="39dp"
+        android:fontFamily="@font/oleo_script"
         android:text="Record Weight"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -172,13 +173,53 @@
         android:layout_height="58dp"
         android:layout_below="@+id/nameInput5"
         android:layout_alignStart="@+id/imgageView11"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="#888888"
         android:text="Record"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="51dp"
+        android:layout_height="54dp"
+        android:layout_alignStart="@+id/imageView12"
+        android:layout_alignTop="@+id/imageView12"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/home" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView12"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="-1dp"
+        app:srcCompat="@drawable/message" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="56dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/imageView12"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/user" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView12"
+        android:layout_alignTop="@+id/imageView12"
+        android:layout_marginStart="310dp"
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/cogwheel" />
 
 </RelativeLayout>
