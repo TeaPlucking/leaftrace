@@ -44,6 +44,8 @@ public class loginScreenActivity extends AppCompatActivity {
     }
 
     private void openForgetPwd() {
+        Intent intent = new Intent(this,forgotPasswordActivity.class);
+        startActivity(intent);
     }
 
     private void openDashboard() {
