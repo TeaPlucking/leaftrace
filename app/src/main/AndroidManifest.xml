@@ -12,15 +12,15 @@
         android:theme="@style/Theme.LeafTrace"
         tools:targetApi="31">
         <activity
-<<<<<<< Updated upstream
-=======
+            android:name=".forgotPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".settingsActivity"
             android:exported="false" />
         <activity
             android:name=".viewIssueActivity"
             android:exported="false" />
         <activity
->>>>>>> Stashed changes
             android:name=".payrollActivity"
             android:exported="false" />
         <activity
