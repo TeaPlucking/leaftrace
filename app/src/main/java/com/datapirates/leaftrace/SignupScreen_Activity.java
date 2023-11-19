@@ -23,7 +23,7 @@ public class SignupScreen_Activity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDashboard();
+                openLoginscreen();
             }
         });
 
@@ -35,8 +35,8 @@ public class SignupScreen_Activity extends AppCompatActivity {
         });
     }
 
-    private void openDashboard() {
-        Intent intent = new Intent(this, DashboardActivity.class);
+    private void openLoginscreen() {
+        Intent intent = new Intent(this, loginScreenActivity.class);
         startActivity(intent);
     }
 
