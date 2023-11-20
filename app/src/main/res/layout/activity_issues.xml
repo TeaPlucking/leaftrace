@@ -117,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/imageView24"
         android:layout_alignTop="@+id/imageView24"
-        android:layout_marginStart="319dp"
-        android:layout_marginTop="-6dp"
+        android:layout_marginStart="324dp"
+        android:layout_marginTop="-1dp"
         app:srcCompat="@drawable/cogwheel" />
 </RelativeLayout>
