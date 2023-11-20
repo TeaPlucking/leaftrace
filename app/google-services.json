@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "270167287796",
+    "project_id": "leaf-trace",
+    "storage_bucket": "leaf-trace.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270167287796:android:8cdab6e0bdf8b954f83ba1",
+        "android_client_info": {
+          "package_name": "com.datapirates.leaftrace"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMk3uapZx3vFvqOep_MB7lnTgoRxYMWoo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

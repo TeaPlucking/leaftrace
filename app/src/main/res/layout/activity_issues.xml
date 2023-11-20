@@ -10,12 +10,12 @@
     <ImageView
         android:id="@+id/imgageView"
         android:layout_width="374dp"
-        android:layout_height="649dp"
+        android:layout_height="647dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"
@@ -57,12 +57,14 @@
         android:layout_height="169dp"
         android:layout_below="@+id/textView21"
         android:layout_alignStart="@+id/imgageView"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="40dp"
         android:background="#D9D9D9"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:hint="Wite your issue here ......"
+        android:textColorHint="@color/black"/>
 
     <Button
         android:id="@+id/postbtn"
@@ -83,39 +85,39 @@
         android:id="@+id/imageView25"
         android:layout_width="45dp"
         android:layout_height="48dp"
-        android:layout_below="@+id/imgageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="4dp"
+        android:layout_alignStart="@+id/imageView24"
+        android:layout_alignTop="@+id/imageView24"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="-1dp"
         app:srcCompat="@drawable/home" />
 
     <ImageView
         android:id="@+id/imageView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgageView"
+        android:layout_alignTop="@+id/imageView24"
         android:layout_alignParentStart="true"
         android:layout_marginStart="132dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="-5dp"
         app:srcCompat="@drawable/message" />
 
     <ImageView
         android:id="@+id/imageView27"
         android:layout_width="50dp"
         android:layout_height="51dp"
-        android:layout_below="@+id/imgageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="229dp"
-        android:layout_marginTop="3dp"
+        android:layout_alignStart="@+id/imageView24"
+        android:layout_alignTop="@+id/imageView24"
+        android:layout_marginStart="223dp"
+        android:layout_marginTop="-1dp"
         app:srcCompat="@drawable/user" />
 
     <ImageView
         android:id="@+id/imageView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgageView"
         android:layout_alignStart="@+id/imageView24"
+        android:layout_alignTop="@+id/imageView24"
         android:layout_marginStart="319dp"
-        android:layout_marginTop="-2dp"
+        android:layout_marginTop="-6dp"
         app:srcCompat="@drawable/cogwheel" />
 </RelativeLayout>
