@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PaymentActivity"
+    android:background="@drawable/gradient_background">
+
+    <ImageView
+        android:id="@+id/imgageView7"
+        android:layout_width="374dp"
+        android:layout_height="649dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white" />
+
+    <ImageView
+        android:id="@+id/imageView50"
+        android:layout_width="400dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/imgageView7"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/green" />
+
+    <ImageView
+        android:id="@+id/imageView51"
+        android:layout_width="54dp"
+        android:layout_height="48dp"
+        android:layout_alignTop="@+id/imageView50"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="1dp"
+        app:srcCompat="@drawable/home" />
+
+    <ImageView
+        android:id="@+id/imageView52"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView50"
+        android:layout_alignTop="@+id/imageView50"
+        android:layout_marginStart="126dp"
+        android:layout_marginTop="1dp"
+        app:srcCompat="@drawable/message" />
+
+    <ImageView
+        android:id="@+id/imageView53"
+        android:layout_width="72dp"
+        android:layout_height="56dp"
+        android:layout_alignTop="@+id/imageView50"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="-3dp"
+        app:srcCompat="@drawable/user" />
+
+    <ImageView
+        android:id="@+id/imageView54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView50"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="321dp"
+        android:layout_marginTop="2dp"
+        app:srcCompat="@drawable/cogwheel" />
+
+    <TextView
+        android:id="@+id/payment_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imgageView7"
+        android:layout_alignTop="@+id/imgageView7"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="@font/oleo_script"
+        android:textSize="30dp"
+        android:text="Payment" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/payment_txt"
+        android:layout_alignStart="@+id/imgageView7"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="28dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="Name: " />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/payment_txt"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:layout_toEndOf="@+id/textView28"
+        android:text=""
+        android:hint="Data pirates"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <ScrollView
+        android:id="@+id/sroll1"
+        android:layout_width="330dp"
+        android:layout_height="439dp"
+        android:layout_below="@+id/textView29"
+        android:layout_alignStart="@+id/imgageView7"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="20dp"
+        android:background="#883E3D3D">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:hint="  Amount            Date            status"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
