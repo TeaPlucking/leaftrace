@@ -68,23 +68,13 @@
         app:lineHeight="23sp" />
 
     <ImageView
-        android:id="@+id/imageView46"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView44"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="323dp"
-        android:layout_marginTop="1dp"
-        app:srcCompat="@drawable/cogwheel" />
-
-    <ImageView
         android:id="@+id/imageView47"
         android:layout_width="49dp"
         android:layout_height="43dp"
         android:layout_alignStart="@+id/imageView44"
         android:layout_alignTop="@+id/imageView44"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="2dp"
         app:srcCompat="@drawable/home" />
 
     <ImageView
@@ -93,8 +83,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageView44"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="129dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="178dp"
+        android:layout_marginTop="2dp"
         app:srcCompat="@drawable/message" />
 
     <ImageView
@@ -103,8 +93,8 @@
         android:layout_height="49dp"
         android:layout_alignTop="@+id/imageView44"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginStart="301dp"
+        android:layout_marginTop="0dp"
         app:srcCompat="@drawable/user" />
 
 </RelativeLayout>

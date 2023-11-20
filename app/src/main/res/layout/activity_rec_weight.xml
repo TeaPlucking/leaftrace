@@ -188,7 +188,7 @@
         android:layout_height="54dp"
         android:layout_alignStart="@+id/imageView12"
         android:layout_alignTop="@+id/imageView12"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="46dp"
         android:layout_marginTop="0dp"
         app:srcCompat="@drawable/home" />
 
@@ -198,8 +198,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageView12"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="133dp"
-        android:layout_marginTop="-1dp"
+        android:layout_marginStart="187dp"
+        android:layout_marginTop="2dp"
         app:srcCompat="@drawable/message" />
 
     <ImageView
@@ -208,18 +208,8 @@
         android:layout_height="50dp"
         android:layout_alignTop="@+id/imageView12"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginStart="306dp"
+        android:layout_marginTop="-1dp"
         app:srcCompat="@drawable/user" />
-
-    <ImageView
-        android:id="@+id/imageView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView12"
-        android:layout_alignTop="@+id/imageView12"
-        android:layout_marginStart="310dp"
-        android:layout_marginTop="0dp"
-        app:srcCompat="@drawable/cogwheel" />
 
 </RelativeLayout>

@@ -43,8 +43,8 @@
         android:layout_height="42dp"
         android:layout_alignTop="@+id/imageView34"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="4dp"
         app:srcCompat="@drawable/home" />
 
     <ImageView
@@ -53,8 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageView34"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="177dp"
+        android:layout_marginTop="5dp"
         app:srcCompat="@drawable/message" />
 
     <ImageView
@@ -63,19 +63,9 @@
         android:layout_height="48dp"
         android:layout_below="@+id/imgageView3"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="239dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginStart="306dp"
+        android:layout_marginTop="5dp"
         app:srcCompat="@drawable/user" />
-
-    <ImageView
-        android:id="@+id/imageView38"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView34"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="328dp"
-        android:layout_marginTop="0dp"
-        app:srcCompat="@drawable/cogwheel" />
 
     <TextView
         android:id="@+id/viewIssues"

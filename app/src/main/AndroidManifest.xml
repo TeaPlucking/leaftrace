@@ -15,7 +15,7 @@
             android:name=".forgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".settingsActivity"
+            android:name=".profileActivity"
             android:exported="false" />
         <activity
             android:name=".viewIssueActivity"
