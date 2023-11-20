@@ -86,11 +86,15 @@ public class DashboardActivity extends AppCompatActivity {
 
 
     private void profile() {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
     }
 
     private void area() {
     }
 
     private void payment() {
+        Intent intent = new Intent(this, PaymentActivity.class);
+        startActivity(intent);
     }
 }
