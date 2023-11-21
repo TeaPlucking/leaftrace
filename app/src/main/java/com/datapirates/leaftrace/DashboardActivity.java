@@ -47,7 +47,7 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-        profile.setOnClickListener(new View.OnClickListener() {
+        pro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 profile();
@@ -61,7 +61,7 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-        settings.setOnClickListener(new View.OnClickListener() {
+        setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 settings();
