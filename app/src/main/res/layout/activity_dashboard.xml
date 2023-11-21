@@ -328,7 +328,7 @@
         app:srcCompat="@drawable/green" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/home2"
         android:layout_width="43dp"
         android:layout_height="40dp"
         android:layout_alignStart="@+id/imageView14"
@@ -338,7 +338,7 @@
         app:srcCompat="@drawable/home" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/issues2"
         android:layout_width="wrap_content"
         android:layout_height="49dp"
         android:layout_alignTop="@+id/imageView14"
@@ -348,23 +348,25 @@
         app:srcCompat="@drawable/message" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/profile2"
         android:layout_width="55dp"
         android:layout_height="50dp"
         android:layout_alignTop="@+id/imageView14"
         android:layout_alignParentStart="true"
         android:layout_marginStart="230dp"
         android:layout_marginTop="-2dp"
+        android:clickable="true"
         app:srcCompat="@drawable/user" />
 
     <ImageView
-        android:id="@+id/imageView45"
+        android:id="@+id/settings2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/imageView14"
         android:layout_alignTop="@+id/imageView14"
         android:layout_marginStart="321dp"
         android:layout_marginTop="2dp"
+        android:clickable="true"
         app:srcCompat="@drawable/cogwheel" />
 
 </RelativeLayout>

@@ -38,7 +38,7 @@
         app:srcCompat="@drawable/green" />
 
     <ImageView
-        android:id="@+id/imageView51"
+        android:id="@+id/home5"
         android:layout_width="54dp"
         android:layout_height="48dp"
         android:layout_alignTop="@+id/imageView50"
@@ -48,7 +48,7 @@
         app:srcCompat="@drawable/home" />
 
     <ImageView
-        android:id="@+id/imageView52"
+        android:id="@+id/issues5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/imageView50"
@@ -58,7 +58,7 @@
         app:srcCompat="@drawable/message" />
 
     <ImageView
-        android:id="@+id/imageView53"
+        android:id="@+id/profile5"
         android:layout_width="72dp"
         android:layout_height="56dp"
         android:layout_alignTop="@+id/imageView50"
@@ -68,7 +68,7 @@
         app:srcCompat="@drawable/user" />
 
     <ImageView
-        android:id="@+id/imageView54"
+        android:id="@+id/settings5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageView50"

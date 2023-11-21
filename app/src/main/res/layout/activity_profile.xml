@@ -39,7 +39,7 @@
         app:srcCompat="@drawable/green" />
 
     <ImageView
-        android:id="@+id/imageView56"
+        android:id="@+id/home7"
         android:layout_width="54dp"
         android:layout_height="48dp"
         android:layout_alignTop="@+id/imageView55"
@@ -50,18 +50,18 @@
         app:srcCompat="@drawable/home" />
 
     <ImageView
-        android:id="@+id/imageView57"
+        android:id="@+id/issues7"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_below="@+id/imgageView8"
         android:layout_alignStart="@+id/imageView55"
+        android:layout_alignTop="@+id/imageView55"
         android:layout_marginStart="125dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="1dp"
         android:clickable="true"
         app:srcCompat="@drawable/message" />
 
     <ImageView
-        android:id="@+id/imageView58"
+        android:id="@+id/profile7"
         android:layout_width="61dp"
         android:layout_height="52dp"
         android:layout_alignTop="@+id/imageView55"
@@ -71,7 +71,7 @@
         app:srcCompat="@drawable/user" />
 
     <ImageView
-        android:id="@+id/imageView59"
+        android:id="@+id/settings7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageView55"
@@ -117,6 +117,5 @@
         </RelativeLayout>
 
     </ScrollView>
-
 
 </RelativeLayout>

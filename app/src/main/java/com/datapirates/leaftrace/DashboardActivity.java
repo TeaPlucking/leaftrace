@@ -7,10 +7,12 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    CardView pay, area, profile, about, settings, issues;
+    CardView pay, area, pro, about, setting, issues;
+    ImageView home, issue, profile, settings;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -20,10 +22,15 @@ public class DashboardActivity extends AppCompatActivity {
 
         pay = findViewById(R.id.payment);
         area = findViewById(R.id.area);
-        profile = findViewById(R.id.profile);
+        pro = findViewById(R.id.profile);
         about = findViewById(R.id.about);
-        settings = findViewById(R.id.settings);
+        setting = findViewById(R.id.settings);
         issues = findViewById(R.id.issues);
+
+        home = findViewById(R.id.home2);
+        issue = findViewById(R.id.issues2);
+        profile = findViewById(R.id.profile2);
+        settings = findViewById(R.id.settings2);
 
 
         pay.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +74,34 @@ public class DashboardActivity extends AppCompatActivity {
                 issues();
             }
         });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openhome();
+            }
+        });
+
+        issue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openissue();
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openprofile();
+            }
+        });
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opensettings();
+            }
+        });
     }
 
     private void issues() {
@@ -95,6 +130,26 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void payment() {
         Intent intent = new Intent(this, PaymentActivity.class);
+        startActivity(intent);
+    }
+
+    private void opensettings() {
+        Intent intent = new Intent(this,settingsActivity.class);
+        startActivity(intent);
+    }
+
+    private void openprofile() {
+        Intent intent = new Intent(this,ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    private void openissue() {
+        Intent intent = new Intent(this,IssuesActivity.class);
+        startActivity(intent);
+    }
+
+    private void openhome() {
+        Intent intent = new Intent(this,DashboardActivity.class);
         startActivity(intent);
     }
 }
