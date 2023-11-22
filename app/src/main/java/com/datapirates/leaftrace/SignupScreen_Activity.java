@@ -12,11 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class SignupScreen_Activity extends AppCompatActivity {
     Button signup;
     TextView loginHere;
     EditText editTextEmail ,editTextManagerid,editTextUsername,editTextPwd,editTextRePwd;
+
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +35,13 @@ public class SignupScreen_Activity extends AppCompatActivity {
         editTextPwd =findViewById(R.id.pwdInput);
         editTextRePwd = findViewById(R.id.rePwdInput);
 
+        auth = FirebaseAuth.getInstance();
+
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
-                    case R.id.loginHereBtn:
-                        Intent intent = new Intent(SignupScreen_Activity.this, loginScreenActivity.class);
-                        startActivity(intent);
-                        break;
                     case R.id.signupbtn:
                         String email, managerid, username, pwd, repwd;
                         email = editTextEmail.getText().toString();
@@ -48,19 +50,33 @@ public class SignupScreen_Activity extends AppCompatActivity {
                         pwd = editTextPwd.getText().toString();
                         repwd = editTextRePwd.getText().toString();
 
-                        if (email.equals("") ||  username.equals("") || pwd.equals("") || repwd.equals("")) {
+                        if (email.equals("") || managerid.equals("") ||  username.equals("") || pwd.equals("") || repwd.equals("")) {
                             Toast.makeText(SignupScreen_Activity.this, "Fields can't be empty", Toast.LENGTH_SHORT).show();
                         } else {
-                            if (pwd.length() < 4) {
-                                Toast.makeText(SignupScreen_Activity.this, "Password should have at least 4 characters", Toast.LENGTH_SHORT).show();
+                            if (pwd.length() < 6) {
+                                Toast.makeText(SignupScreen_Activity.this, "Password should have at least 6 characters", Toast.LENGTH_SHORT).show();
                             } else if (!pwd.equals(repwd)) {
                                 Toast.makeText(SignupScreen_Activity.this, "Password does not match", Toast.LENGTH_SHORT).show();
                             } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                                 Toast.makeText(SignupScreen_Activity.this, "Email should be in a valid format", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(SignupScreen_Activity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                                intent = new Intent(SignupScreen_Activity.this, loginScreenActivity.class);
-                                startActivity(intent);
+                                auth.createUserWithEmailAndPassword(email,pwd).addOnCompleteListener(SignupScreen_Activity.this, sign ->{
+                                    if (sign.isSuccessful()){
+                                        Toast.makeText(SignupScreen_Activity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(SignupScreen_Activity.this, loginScreenActivity.class);
+                                        startActivity(intent);
+                                    }
+                                    else {
+                                        Exception exception = sign.getException();
+                                        if (exception instanceof FirebaseAuthUserCollisionException) {
+                                            // Handle case where email is already in use
+                                            Toast.makeText(SignupScreen_Activity.this, "Email is already in use", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            // Handle other registration failures
+                                            Toast.makeText(SignupScreen_Activity.this, "Registration Failed: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                    }
+                                });
                             }
                         }
                         break;
