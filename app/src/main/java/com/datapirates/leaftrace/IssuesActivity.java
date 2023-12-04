@@ -51,6 +51,7 @@ public class IssuesActivity extends AppCompatActivity {
                 opensettings();
             }
         });
+
     }
 
     private void opensettings() {

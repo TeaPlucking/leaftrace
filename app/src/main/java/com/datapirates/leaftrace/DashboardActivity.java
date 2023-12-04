@@ -102,6 +102,7 @@ public class DashboardActivity extends AppCompatActivity {
                 opensettings();
             }
         });
+
     }
 
     private void issues() {
