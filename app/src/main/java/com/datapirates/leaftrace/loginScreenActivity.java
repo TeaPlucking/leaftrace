@@ -1,5 +1,6 @@
 package com.datapirates.leaftrace;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,9 +10,18 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
+
 public class loginScreenActivity extends AppCompatActivity {
-    TextView signHere, forgetpwd;
-    TextView enter_Username, enter_Password;
+    TextView signHere, forgetPwd;
+    TextView enterUsername, enterPassword;
     Button login;
 
     @Override
@@ -19,16 +29,12 @@ public class loginScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
 
-        // Validation of the Login Screen
-
-        enter_Username = findViewById(R.id.login_input);
-        enter_Password = findViewById(R.id.password_input1);
-
-
+        enterUsername = findViewById(R.id.login_input);
+        enterPassword = findViewById(R.id.password_input1);
 
         signHere = findViewById(R.id.signupHerebtn);
         login = findViewById(R.id.login);
-        forgetpwd = findViewById(R.id.forgetPwdBtn);
+        forgetPwd = findViewById(R.id.forgetPwdBtn);
 
         signHere.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,44 +46,105 @@ public class loginScreenActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (enter_Username.getText().toString().equals("admin") && enter_Password.getText().toString().equals("admin")) {
-                    // Correct credentials for tea pluckers
-                    Toast.makeText(loginScreenActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(loginScreenActivity.this, DashboardActivity.class);
-                    startActivity(intent);
-                } else if (enter_Username.getText().toString().equals("plantation staff") && enter_Password.getText().toString().equals("2001")) {
-                    // Correct credentials for plantation staff
-                    Toast.makeText(loginScreenActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(loginScreenActivity.this,mgrDashboardActivity.class);
-                    startActivity(intent);
-                } else {
-                    // Incorrect credentials
-                    Toast.makeText(loginScreenActivity.this, "Incorrect Login Credentials", Toast.LENGTH_SHORT).show();
-
+                if (validateUsername() && validatePassword()) {
+                    checkUser();
                 }
             }
         });
 
-        forgetpwd.setOnClickListener(new View.OnClickListener() {
+        forgetPwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openForgetPwd();
             }
         });
+        return;
     }
 
-    private void openForgetPwd() {
-        Intent intent = new Intent(this,forgotPasswordActivity.class);
-        startActivity(intent);
+    public boolean validateUsername() {
+        String username = enterUsername.getText().toString().trim();
+        if (username.isEmpty()) {
+            enterUsername.setError("Username cannot be empty");
+            return false;
+        } else {
+            enterUsername.setError(null);
+            return true;
+        }
+    }
+
+    public boolean validatePassword() {
+        String password = enterPassword.getText().toString().trim();
+        if (password.isEmpty()) {
+            enterPassword.setError("Password cannot be empty");
+            return false;
+        } else {
+            enterPassword.setError(null);
+            return true;
+        }
+    }
+
+    public void checkUser() {
+        String userUsername = enterUsername.getText().toString().trim();
+        String userPassword = enterPassword.getText().toString().trim();
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+        Query checkUserDatabase = reference.orderByChild("editTextUsername").equalTo(userUsername);
+
+        checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    enterUsername.setError(null);
+                    String role = snapshot.child(userUsername).child("editTextPwd").getValue(String.class);
+
+                    if (userUsername.startsWith("p") && role.equals(userPassword)) {
+                        if (Objects.equals(snapshot.child(userUsername).child("editTextPwd").getValue(String.class), userPassword)) {
+                            openDashboard();
+                        } else {
+                            enterPassword.setError("Invalid Credentials");
+                            enterPassword.requestFocus();
+                        }
+                    } else if (userUsername.startsWith("m") && role.equals(userPassword)) {
+                        if (Objects.equals(snapshot.child(userUsername).child("editTextPwd").getValue(String.class), userPassword)) {
+                            openManagerDashboard();
+                        } else {
+                            enterPassword.setError("Invalid Credentials");
+                            enterPassword.requestFocus();
+                        }
+                    } else {
+                        enterUsername.setError("Invalid User Type");
+                        enterUsername.requestFocus();
+                    }
+                } else {
+                    enterUsername.setError("User does not exist");
+                    enterUsername.requestFocus();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle onCancelled
+            }
+        });
     }
 
     private void openDashboard() {
-        Intent intent = new Intent(this, DashboardActivity.class);
+        Intent intent = new Intent(loginScreenActivity.this, DashboardActivity.class);
+        startActivity(intent);
+    }
+
+    private void openManagerDashboard() {
+        Intent intent = new Intent(loginScreenActivity.this, mgrDashboardActivity.class);
+        startActivity(intent);
+    }
+
+    private void openForgetPwd() {
+        Intent intent = new Intent(loginScreenActivity.this, forgotPasswordActivity.class);
         startActivity(intent);
     }
 
     private void openSignupScreen() {
-        Intent intent = new Intent(this, SignupScreen_Activity.class);
+        Intent intent = new Intent(loginScreenActivity.this, SignupScreen_Activity.class);
         startActivity(intent);
     }
 }

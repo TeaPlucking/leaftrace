@@ -49,6 +49,7 @@ public class about_activity extends AppCompatActivity {
                 opensettings();
             }
         });
+
     }
 
     private void opensettings() {

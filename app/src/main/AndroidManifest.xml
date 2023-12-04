@@ -47,10 +47,10 @@
             android:exported="false" />
         <activity
             android:name=".SignupScreen_Activity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".loginScreenActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".login_signupActivity"
             android:exported="false" />

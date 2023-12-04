@@ -50,6 +50,7 @@ public class payrollActivity extends AppCompatActivity {
                 opensettings();
             }
         });
+
     }
 
     private void opensettings() {

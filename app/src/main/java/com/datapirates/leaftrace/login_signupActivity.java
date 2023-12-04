@@ -10,6 +10,7 @@ import android.widget.Button;
 public class login_signupActivity extends AppCompatActivity {
     Button logbtn, signupbtn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class login_signupActivity extends AppCompatActivity {
                 openSignupScreen();
             }
         });
+
     }
 
     private void openLoginScreen() {

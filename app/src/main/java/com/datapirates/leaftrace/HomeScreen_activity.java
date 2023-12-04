@@ -26,6 +26,7 @@ public class HomeScreen_activity extends AppCompatActivity {
         });
 
 
+
     }
 
     private void openLoginSignup() {

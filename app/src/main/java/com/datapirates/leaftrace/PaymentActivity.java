@@ -50,6 +50,7 @@ public class PaymentActivity extends AppCompatActivity {
                 opensettings();
             }
         });
+
     }
 
     private void opensettings() {

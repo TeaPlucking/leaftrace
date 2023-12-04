@@ -2,6 +2,7 @@ package com.datapirates.leaftrace;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -14,14 +15,21 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupScreen_Activity extends AppCompatActivity {
     Button signup;
     TextView loginHere;
-    EditText editTextEmail ,editTextManagerid,editTextUsername,editTextPwd,editTextRePwd;
+    EditText editTextEmail ,editTextManagerid,editTextUsername,editTextPwd,editTextRePwd, editTextname;
+
+    FirebaseDatabase database;
+    DatabaseReference reference;
+
 
     private FirebaseAuth auth;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +38,12 @@ public class SignupScreen_Activity extends AppCompatActivity {
         signup = findViewById(R.id.signupbtn);
         loginHere = findViewById(R.id.loginHereBtn);
         editTextEmail = findViewById(R.id.emailInput);
-        editTextManagerid = findViewById(R.id.mngrIdInput2);
-        editTextUsername = findViewById(R.id.nameInput);
+        editTextManagerid = findViewById(R.id.mngrIdInput);
+        editTextUsername = findViewById(R.id.UsernameInput);
         editTextPwd =findViewById(R.id.pwdInput);
         editTextRePwd = findViewById(R.id.rePwdInput);
+        editTextname = findViewById(R.id.nameInput);
+
 
         auth = FirebaseAuth.getInstance();
 
@@ -43,12 +53,13 @@ public class SignupScreen_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.signupbtn:
-                        String email, managerid, username, pwd, repwd;
+                        String email, managerid, username, pwd, repwd, name;
                         email = editTextEmail.getText().toString();
                         managerid = editTextManagerid.getText().toString();
                         username = editTextUsername.getText().toString();
                         pwd = editTextPwd.getText().toString();
                         repwd = editTextRePwd.getText().toString();
+                        name = editTextname.getText().toString();
 
                         if (email.equals("") || managerid.equals("") ||  username.equals("") || pwd.equals("") || repwd.equals("")) {
                             Toast.makeText(SignupScreen_Activity.this, "Fields can't be empty", Toast.LENGTH_SHORT).show();
@@ -57,6 +68,8 @@ public class SignupScreen_Activity extends AppCompatActivity {
                                 Toast.makeText(SignupScreen_Activity.this, "Password should have at least 6 characters", Toast.LENGTH_SHORT).show();
                             } else if (!pwd.equals(repwd)) {
                                 Toast.makeText(SignupScreen_Activity.this, "Password does not match", Toast.LENGTH_SHORT).show();
+                            }else if (!pwd.equals(name)) {
+                                    Toast.makeText(SignupScreen_Activity.this, "Name Cannot be Empty", Toast.LENGTH_SHORT).show();
                             } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                                 Toast.makeText(SignupScreen_Activity.this, "Email should be in a valid format", Toast.LENGTH_SHORT).show();
                             } else {
@@ -84,7 +97,36 @@ public class SignupScreen_Activity extends AppCompatActivity {
             }
         };
 
-        signup.setOnClickListener(onClickListener);
-        loginHere.setOnClickListener(onClickListener);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                database = FirebaseDatabase.getInstance();
+                reference = database.getReference("Users");
+
+                String Username = editTextUsername.getText().toString();
+                String email = editTextEmail.getText().toString();
+                String ManagerID= editTextManagerid.getText().toString();
+                String password = editTextPwd.getText().toString();
+                String ConfirmPassword = editTextRePwd.getText().toString();
+                String name = editTextname.getText().toString();
+
+                HelperClass helperClass = new HelperClass(Username, email, ManagerID, password, ConfirmPassword,name);
+                reference.child(Username).setValue(helperClass);
+
+                Toast.makeText(SignupScreen_Activity.this, "you have signed up Successfully!",Toast.LENGTH_SHORT).show();
+                Intent intent  = new Intent(SignupScreen_Activity.this, loginScreenActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        loginHere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignupScreen_Activity.this, loginScreenActivity.class);
+                startActivity(intent);
+
+            }
+        });
     }
 }

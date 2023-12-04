@@ -50,6 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
                 opensettings();
             }
         });
+
     }
 
     private void opensettings() {

@@ -51,6 +51,7 @@ public class settingsActivity extends AppCompatActivity {
                 opensettings();
             }
         });
+
     }
 
     private void opensettings() {
