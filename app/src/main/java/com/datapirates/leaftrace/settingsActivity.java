@@ -15,136 +15,145 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class settingsActivity extends AppCompatActivity {
 
-    ImageView home, issue, profile, settings;
+        ImageView home, issue, profile, settings;
 
-    EditText name, email, telNo, Password;
-    Button saveChanges;
-    String nameUser, emailUser, telUser, userPassword;
-    DatabaseReference reference;
+        EditText name, email, telNo, Password;
+        Button saveChanges;
+        String nameUser, emailUser, telUser, userPassword;
+        DatabaseReference reference;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_settings);
 
-        home = findViewById(R.id.home8);
-        issue = findViewById(R.id.issues8);
-        profile = findViewById(R.id.profile8);
-        settings = findViewById(R.id.settings8);
+            home = findViewById(R.id.home8);
+            issue = findViewById(R.id.issues8);
 
-        reference = FirebaseDatabase.getInstance().getReference("Users");
+            profile = findViewById(R.id.profile8);
+            settings = findViewById(R.id.settings8);
 
-        name = findViewById(R.id.Name);
-        email = findViewById(R.id.email);
-        telNo = findViewById(R.id.telno);
-        Password = findViewById(R.id.password);
-        saveChanges = findViewById(R.id.button3);
+            reference = FirebaseDatabase.getInstance().getReference("Users");
 
-        showData();
+            name = findViewById(R.id.Name);
+            email = findViewById(R.id.email);
+            telNo = findViewById(R.id.telno);
+            Password = findViewById(R.id.password);
+            saveChanges = findViewById(R.id.button3);
 
-        saveChanges.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNameChanged() || isEmailChanged() || isPasswordChanged()) {
-                    Toast.makeText(settingsActivity.this, "Saved", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(settingsActivity.this, "No changes found", Toast.LENGTH_SHORT).show();
+            showData();
+
+            saveChanges.setOnClickListener(new View.OnClickListener() {
+                @Override
+
+                public void onClick(View v) {
+                    if (isNameChanged() || isEmailChanged() || isPasswordChanged()) {
+                        Toast.makeText(settingsActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(settingsActivity.this, "No changes found", Toast.LENGTH_SHORT).show();
+                    }
                 }
+            });
+
+            home.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openHome();
+
+                }
+            });
+
+            issue.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openIssue();
+                }
+            });
+
+            profile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openProfile();
+                }
+            });
+
+            settings.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    openSettings();
+                }
+            });
+        }
+
+        private void openSettings() {
+        }
+
+        private void opensettings() {
+            Intent intent = new Intent(this, settingsActivity.class);
+            startActivity(intent);
+        }
+
+        private void openProfile() {
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+        }
+
+
+        private void openIssue() {
+            Intent intent = new Intent(this, IssuesActivity.class);
+            startActivity(intent);
+        }
+
+        private void openHome() {
+            Intent intent = new Intent(this, DashboardActivity.class);
+            startActivity(intent);
+        }
+
+        public boolean isNameChanged() {
+            if (!nameUser.equals(name.getText().toString())) {
+                reference.child(telUser).child("name").setValue(name.getText().toString());
+                nameUser =
+
+                        name.getText().toString();
+                return true;
+            } else {
+                return false;
             }
-        });
+        }
 
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openHome();
+        public boolean isEmailChanged() {
+            if (!emailUser.equals(email.getText().toString())) {
+                reference.child(telUser).child("email").setValue(email.getText().toString());
+                emailUser = email.getText().toString();
+                return true;
+            } else {
+                return false;
             }
-        });
+        }
 
-        issue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openIssue();
+
+        public boolean isPasswordChanged() {
+            if (!userPassword.equals(Password.getText().toString())) {
+                reference.child(telUser).child("password").setValue(Password.getText().toString());
+                userPassword = Password.getText().toString();
+                return true;
+            } else {
+                return false;
             }
-        });
+        }
 
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openProfile();
-            }
-        });
+        public void showData() {
+            nameUser = getIntent().getStringExtra("name");
+            emailUser = getIntent().getStringExtra("email");
 
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSettings();
-            }
-        });
-    }
+            telUser = getIntent().getStringExtra("telNo");
+            userPassword = getIntent().getStringExtra("Password");
 
-    private void openSettings() {
-    }
-
-    private void opensettings() {
-        Intent intent = new Intent(this, settingsActivity.class);
-        startActivity(intent);
-    }
-
-    private void openProfile() {
-        Intent intent = new Intent(this, ProfileActivity.class);
-        startActivity(intent);
-    }
-
-    private void openIssue() {
-        Intent intent = new Intent(this, IssuesActivity.class);
-        startActivity(intent);
-    }
-
-    private void openHome() {
-        Intent intent = new Intent(this, DashboardActivity.class);
-        startActivity(intent);
-    }
-
-    public boolean isNameChanged() {
-        if (!nameUser.equals(name.getText().toString())) {
-            reference.child(telUser).child("name").setValue(name.getText().toString());
-            nameUser = name.getText().toString();
-            return true;
-        } else {
-            return false;
+            name.setText(nameUser);
+            email.setText(emailUser);
+            telNo.setText(telUser);
+            Password.setText(userPassword);
         }
     }
 
-    public boolean isEmailChanged() {
-        if (!emailUser.equals(email.getText().toString())) {
-            reference.child(telUser).child("email").setValue(email.getText().toString());
-            emailUser = email.getText().toString();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean isPasswordChanged() {
-        if (!userPassword.equals(Password.getText().toString())) {
-            reference.child(telUser).child("password").setValue(Password.getText().toString());
-            userPassword = Password.getText().toString();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void showData() {
-        nameUser = getIntent().getStringExtra("name");
-        emailUser = getIntent().getStringExtra("email");
-        telUser = getIntent().getStringExtra("telNo");
-        userPassword = getIntent().getStringExtra("Password");
-
-        name.setText(nameUser);
-        email.setText(emailUser);
-        telNo.setText(telUser);
-        Password.setText(userPassword);
-    }
-}
-   
