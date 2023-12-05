@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class mgrDashboardActivity extends AppCompatActivity {
+public class  mgrDashboardActivity extends AppCompatActivity {
 
     ImageView payroll, update, record, checkissues;
 

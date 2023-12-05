@@ -3,6 +3,7 @@ package com.datapirates.leaftrace;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -15,13 +16,14 @@ import com.google.firebase.database.ValueEventListener;
 public class viewIssueActivity extends AppCompatActivity {
      TextView issueTextView;
      DatabaseReference databaseReference;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_issue);
 
         // Initialize TextView
-        issueTextView = findViewById(R.id.viewIssues);
+        issueTextView = findViewById(R.id.vIssues);
 
         // Initialize Firebase Database Reference
         databaseReference = FirebaseDatabase.getInstance().getReference().child("upload issue");
