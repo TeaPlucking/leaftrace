@@ -147,4 +147,3 @@ public class settingsActivity extends AppCompatActivity {
         Password.setText(userPassword);
     }
 }
-   
