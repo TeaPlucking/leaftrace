@@ -1,8 +1,11 @@
 package com.datapirates.leaftrace;
 
 public class HelperClass {
-
+    // here by using the HelperClass we represent a data model for user information within the leaf trace application.
+    //  Attributes representing users information
     String editTextEmail, editTextManagerid, editTextUsername, editTextPwd, editTextRePwd, editTextname;
+
+    // Parameterized constructor to initialize user attributes
 
     public HelperClass(String editTextEmail, String editTextManagerid, String editTextUsername, String editTextPwd, String editTextRePwd, String name) {
         this.editTextEmail = editTextEmail;
@@ -14,6 +17,7 @@ public class HelperClass {
 
     }
 
+    // getter and setter methods for the attributes
     public String getEditTextEmail() {
         return editTextEmail;
     }
