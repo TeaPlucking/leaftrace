@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
 
     ImageView home, issue, profile, settings;
+    TextView profiledata;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -22,6 +24,11 @@ public class ProfileActivity extends AppCompatActivity {
         issue = findViewById(R.id.issues7);
         profile = findViewById(R.id.profile7);
         settings = findViewById(R.id.settings7);
+
+        profiledata = findViewById(R.id.textView32);
+
+
+
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
