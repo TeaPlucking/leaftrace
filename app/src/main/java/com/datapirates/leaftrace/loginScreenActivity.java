@@ -1,14 +1,17 @@
-package com.datapirates.leaftrace;
+// LoginScreenActivity.java
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.datapirates.leaftrace;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,70 +23,50 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 public class loginScreenActivity extends AppCompatActivity {
-    TextView signHere, forgetPwd;
-    TextView enterUsername, enterPassword;
-    Button login;
+    private EditText enterUsername, enterPassword;
+    private Button login;
+    private TextView signHere, forgetPwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
 
+        // Initialize views
         enterUsername = findViewById(R.id.login_input);
         enterPassword = findViewById(R.id.password_input1);
-
         signHere = findViewById(R.id.signupHerebtn);
         login = findViewById(R.id.login);
         forgetPwd = findViewById(R.id.forgetPwdBtn);
 
-        signHere.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSignupScreen();
+        // Set click listeners
+        signHere.setOnClickListener(v -> openSignupScreen());
+
+        login.setOnClickListener(v -> {
+            if (validateInput()) {
+                checkUser();
             }
         });
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (validateUsername() && validatePassword()) {
-                    checkUser();
-                }
-            }
-        });
-
-        forgetPwd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openForgetPwd();
-            }
-        });
-        return;
+        forgetPwd.setOnClickListener(v -> openForgetPwd());
     }
 
-    public boolean validateUsername() {
+    private boolean validateInput() {
         String username = enterUsername.getText().toString().trim();
+        String password = enterPassword.getText().toString().trim();
+
         if (username.isEmpty()) {
             enterUsername.setError("Username cannot be empty");
             return false;
-        } else {
-            enterUsername.setError(null);
-            return true;
-        }
-    }
-
-    public boolean validatePassword() {
-        String password = enterPassword.getText().toString().trim();
-        if (password.isEmpty()) {
+        } else if (password.isEmpty()) {
             enterPassword.setError("Password cannot be empty");
             return false;
-        } else {
-            enterPassword.setError(null);
-            return true;
         }
+
+        return true;
     }
 
-    public void checkUser() {
+    private void checkUser() {
         String userUsername = enterUsername.getText().toString().trim();
         String userPassword = enterPassword.getText().toString().trim();
 
@@ -95,25 +78,13 @@ public class loginScreenActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     enterUsername.setError(null);
-                    String role = snapshot.child(userUsername).child("editTextPwd").getValue(String.class);
+                    String role = Objects.requireNonNull(snapshot.child(userUsername).child("editTextPwd").getValue(String.class));
 
-                    if (userUsername.startsWith("p") && role.equals(userPassword)) {
-                        if (Objects.equals(snapshot.child(userUsername).child("editTextPwd").getValue(String.class), userPassword)) {
-                            openDashboard();
-                        } else {
-                            enterPassword.setError("Invalid Credentials");
-                            enterPassword.requestFocus();
-                        }
-                    } else if (userUsername.startsWith("m") && role.equals(userPassword)) {
-                        if (Objects.equals(snapshot.child(userUsername).child("editTextPwd").getValue(String.class), userPassword)) {
-                            openManagerDashboard();
-                        } else {
-                            enterPassword.setError("Invalid Credentials");
-                            enterPassword.requestFocus();
-                        }
+                    if ((userUsername.startsWith("p") || userUsername.startsWith("m")) && role.equals(userPassword)) {
+                        openDashboard(userUsername);
                     } else {
-                        enterUsername.setError("Invalid User Type");
-                        enterUsername.requestFocus();
+                        enterPassword.setError("Invalid Credentials");
+                        enterPassword.requestFocus();
                     }
                 } else {
                     enterUsername.setError("User does not exist");
@@ -128,13 +99,20 @@ public class loginScreenActivity extends AppCompatActivity {
         });
     }
 
-    private void openDashboard() {
-        Intent intent = new Intent(loginScreenActivity.this, DashboardActivity.class);
-        startActivity(intent);
-    }
+    private void openDashboard(String userUsername) {
+        Intent intent;
+        if (userUsername.startsWith("p")) {
+            intent = new Intent(loginScreenActivity.this, DashboardActivity.class);
+        } else {
+            intent = new Intent(loginScreenActivity.this, mgrDashboardActivity.class);
+        }
 
-    private void openManagerDashboard() {
-        Intent intent = new Intent(loginScreenActivity.this, mgrDashboardActivity.class);
+        // Pass data to SettingsActivity
+        intent.putExtra("name", "John Doe");
+        intent.putExtra("email", "john.doe@example.com");
+        intent.putExtra("telNo", "1234567890");
+        intent.putExtra("Password", "dummyPassword");
+
         startActivity(intent);
     }
 
