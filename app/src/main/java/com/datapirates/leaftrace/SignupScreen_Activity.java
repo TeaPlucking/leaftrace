@@ -19,9 +19,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupScreen_Activity extends AppCompatActivity {
+
+    // declaring UI elements of the leaf trace application
     Button signup;
     TextView loginHere;
     EditText editTextEmail ,editTextManagerid,editTextUsername,editTextPwd,editTextRePwd, editTextname;
+
+    // declaring firebase variables
 
     FirebaseDatabase database;
     DatabaseReference reference;
@@ -47,7 +51,7 @@ public class SignupScreen_Activity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-
+        // adding error messages for each columns in the sign up page
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,9 +104,12 @@ public class SignupScreen_Activity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // initializing firebase database
                 database = FirebaseDatabase.getInstance();
                 reference = database.getReference("Users");
 
+                // Extract input values
                 String Username = editTextUsername.getText().toString();
                 String email = editTextEmail.getText().toString();
                 String ManagerID= editTextManagerid.getText().toString();
@@ -110,6 +117,7 @@ public class SignupScreen_Activity extends AppCompatActivity {
                 String ConfirmPassword = editTextRePwd.getText().toString();
                 String name = editTextname.getText().toString();
 
+                // Create a HelperClass instance to store user data before saving it to the Firebase Realtime Database
                 HelperClass helperClass = new HelperClass(Username, email, ManagerID, password, ConfirmPassword,name);
                 reference.child(Username).setValue(helperClass);
 
