@@ -10,10 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.datapirates.leaftrace.DashboardActivity;
-import com.datapirates.leaftrace.IssuesActivity;
-import com.datapirates.leaftrace.ProfileActivity;
-import com.datapirates.leaftrace.settingsActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class payrollActivity extends AppCompatActivity {
 
@@ -21,11 +19,21 @@ public class payrollActivity extends AppCompatActivity {
     EditText pluckersId, bonusInput;
     Button calculateButton;
 
+    DatabaseReference paymentReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payroll);
 
+        initializeViews();
+
+        paymentReference = FirebaseDatabase.getInstance().getReference("Payments");
+
+        setOnClickListeners();
+    }
+
+    private void initializeViews() {
         home = findViewById(R.id.home6);
         issue = findViewById(R.id.issues6);
         profile = findViewById(R.id.profile6);
@@ -34,78 +42,49 @@ public class payrollActivity extends AppCompatActivity {
         pluckersId = findViewById(R.id.nameInput9);
         bonusInput = findViewById(R.id.nameInput11);
         calculateButton = findViewById(R.id.calbtn);
-
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openhome();
-            }
-        });
-
-        issue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openissue();
-            }
-        });
-
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openprofile();
-            }
-        });
-
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                opensettings();
-            }
-        });
-
-        calculateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calculatePayment();
-            }
-        });
     }
 
-    private void opensettings() {
-        Intent intent = new Intent(this, settingsActivity.class);
+    private void setOnClickListeners() {
+        home.setOnClickListener(v -> openActivity(DashboardActivity.class));
+        issue.setOnClickListener(v -> openActivity(IssuesActivity.class));
+        profile.setOnClickListener(v -> openActivity(ProfileActivity.class));
+        settings.setOnClickListener(v -> openActivity(settingsActivity.class));
+
+        calculateButton.setOnClickListener(v -> calculateAndStorePayment());
+    }
+
+    private void openActivity(Class<?> activityClass) {
+        Intent intent = new Intent(this, activityClass);
         startActivity(intent);
     }
 
-    private void openprofile() {
-        Intent intent = new Intent(this, ProfileActivity.class);
-        startActivity(intent);
-    }
+    // code for calculating the tea plucker's payment with bonus and amount
 
-    private void openissue() {
-        Intent intent = new Intent(this, IssuesActivity.class);
-        startActivity(intent);
-    }
+    private void calculateAndStorePayment() {
+        String pluckersIdText = pluckersId.getText().toString().trim();
+        String bonusText = bonusInput.getText().toString().trim();
 
-    private void openhome() {
-        Intent intent = new Intent(this, DashboardActivity.class);
-        startActivity(intent);
-    }
-
-    private void calculatePayment() {
-        // Retrieve bonus amount from input
-        String bonusText = bonusInput.getText().toString();
-        if (bonusText.isEmpty()) {
-            Toast.makeText(this, "Please enter bonus amount", Toast.LENGTH_SHORT).show();
+        if (pluckersIdText.isEmpty() || bonusText.isEmpty()) {
+            Toast.makeText(this, "Please enter pluckers' ID and bonus amount", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Converting  bonus amount to double
         double bonus = Double.parseDouble(bonusText);
-
-        // performing the bonus
         double payment = 10 * bonus;
 
-        // Displaying  the result
-        Toast.makeText(this, "Payment: " + payment, Toast.LENGTH_SHORT).show();
+        // code for Storing payment details of tea pluckers  in Firebase database
+        PaymentInfo paymentInfo = new PaymentInfo(pluckersIdText, bonus, payment);
+        paymentReference.child(pluckersIdText).setValue(paymentInfo)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(this, "Payment stored successfully", Toast.LENGTH_SHORT).show();
+                    clearInputFields();
+                })
+                .addOnFailureListener(e ->
+                        Toast.makeText(this, "Failed to store payment information", Toast.LENGTH_SHORT).show());
+    }
+    // getting values of payments
+    private void clearInputFields() {
+        pluckersId.getText().clear();
+        bonusInput.getText().clear();
     }
 }
