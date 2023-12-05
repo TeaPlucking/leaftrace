@@ -45,10 +45,10 @@
         android:id="@+id/Name"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/floatingActionButton"
+        android:layout_below="@+id/imageView43"
         android:layout_alignStart="@+id/imgageView6"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/round_btn"
         android:ems="10"
         android:hint="Name"
@@ -56,7 +56,7 @@
         android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:textColor="#000000"
-        android:textColorHint="#504F4F"/>
+        android:textColorHint="#504F4F" />
 
     <EditText
         android:id="@+id/email"
@@ -169,18 +169,7 @@
         android:layout_alignStart="@+id/imgageView6"
         android:layout_marginStart="112dp"
         android:layout_marginTop="23dp"
-        app:srcCompat="@drawable/propic" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView43"
-        android:layout_marginStart="-28dp"
-        android:layout_marginTop="-26dp"
-        android:layout_toEndOf="@+id/imageView43"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@drawable/logo" />
 
     <Button
         android:id="@+id/button3"
@@ -195,10 +184,12 @@
         android:textSize="20dp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:backgroundTint="#888888"/>
+        android:backgroundTint="#888888"
+        app:cornerRadius = "20dp"
+        />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/signoutBtn"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_alignTop="@+id/imgageView6"
