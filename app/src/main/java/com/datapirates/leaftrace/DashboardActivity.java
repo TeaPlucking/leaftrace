@@ -103,7 +103,16 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+        area.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                area();
+            }
+        });
+
     }
+
+
 
     private void issues() {
         Intent intent = new Intent(this,IssuesActivity.class);
@@ -127,6 +136,8 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void area() {
+        Intent intent = new Intent(this,Areacategory.class);
+        startActivity(intent);
     }
 
     private void payment() {

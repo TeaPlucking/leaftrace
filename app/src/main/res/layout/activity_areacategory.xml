@@ -53,14 +53,81 @@
         app:srcCompat="@drawable/green" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/textabout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="North"
+        android:layout_marginTop="16dp"
+        android:text="The given numbers will allocate the area name for the tea plucker's"
         app:layout_constraintEnd_toEndOf="@+id/imgageView4"
         app:layout_constraintHorizontal_bias="0.295"
         app:layout_constraintStart_toStartOf="@+id/imgageView4"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="01 - North tea field area"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#274A28"
+        app:layout_constraintEnd_toEndOf="@+id/imgageView4"
+        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintStart_toStartOf="@+id/imgageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textabout" />
+
+    <TextView
+        android:id="@+id/textsouth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="02 - South tea field area"
+        android:textColor="#274A28"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imgageView4"
+        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintStart_toStartOf="@+id/imgageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+    <TextView
+        android:id="@+id/texteast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="03 - East tea field area"
+        android:textColor="#274A28"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imgageView4"
+        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintStart_toStartOf="@+id/imgageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textsouth" />
+
+    <TextView
+        android:id="@+id/textwest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="04 - West tea field area"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#274A28"
+        app:layout_constraintEnd_toEndOf="@+id/imgageView4"
+        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintStart_toStartOf="@+id/imgageView4"
+        app:layout_constraintTop_toBottomOf="@+id/texteast" />
+
+    <TextView
+        android:id="@+id/textcenterd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="05 - Centered Tea Field Area"
+        android:textColor="#274A28"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imgageView4"
+        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintStart_toStartOf="@+id/imgageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textwest" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

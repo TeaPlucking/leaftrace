@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class payrollActivity extends AppCompatActivity {
 
-    ImageView home, issue, profile, settings;
+    ImageView home, settings;
     EditText pluckersId, bonusInput;
     Button calculateButton;
 
@@ -35,8 +35,6 @@ public class payrollActivity extends AppCompatActivity {
 
     private void initializeViews() {
         home = findViewById(R.id.home6);
-        issue = findViewById(R.id.issues6);
-        profile = findViewById(R.id.profile6);
         settings = findViewById(R.id.settings6);
 
         pluckersId = findViewById(R.id.nameInput9);
@@ -46,8 +44,6 @@ public class payrollActivity extends AppCompatActivity {
 
     private void setOnClickListeners() {
         home.setOnClickListener(v -> openActivity(DashboardActivity.class));
-        issue.setOnClickListener(v -> openActivity(IssuesActivity.class));
-        profile.setOnClickListener(v -> openActivity(ProfileActivity.class));
         settings.setOnClickListener(v -> openActivity(settingsActivity.class));
 
         calculateButton.setOnClickListener(v -> calculateAndStorePayment());
@@ -69,6 +65,7 @@ public class payrollActivity extends AppCompatActivity {
             return;
         }
 
+        // the above code is used to get the amount of the tea pluckers as rupees here 10 is used as a demonstration example for the app
         double bonus = Double.parseDouble(bonusText);
         double payment = 10 * bonus;
 

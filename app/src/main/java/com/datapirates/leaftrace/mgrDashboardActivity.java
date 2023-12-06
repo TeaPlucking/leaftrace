@@ -25,6 +25,7 @@ public class  mgrDashboardActivity extends AppCompatActivity {
         home = findViewById(R.id.imageView16);
         settings= findViewById(R.id.imageView111);
 
+
         payroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +61,8 @@ public class  mgrDashboardActivity extends AppCompatActivity {
                 Intent intent = new Intent(mgrDashboardActivity.this, settingsActivity.class);
             }
         });
+
+
 
 
 
